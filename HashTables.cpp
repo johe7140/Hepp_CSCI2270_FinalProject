@@ -292,60 +292,62 @@ void HashTable::compareMovie(std::string name) {		//Prints movie index informati
 }
 
 void HashTable::compareTables(int index) {			//Prints table information at index
-	HashElem *tmp = hashTable[index];
-	HashElem *tmp2 = hashTableEven[index];
-	HashElem *tmp3 = hashTableOdd[index];
-	bool empty = true;
-	bool empty2 = true;
-	bool empty3 = true;
-	
-	tmp = tmp->next;
-	if (tmp != NULL) {
-		cout << "Table 1 - Index " << index << ":" << endl;
-	}
-	while (tmp != NULL) {
-		empty = false;
-		cout << tmp->title << ", " << tmp->year;
-		tmp = tmp->next;
-		if (tmp != NULL) {
-			cout << " -> ";
-		}
-		else {
-			cout << endl;
-		}
-	}
+    bool empty = true;
+    bool empty2 = true;
+    bool empty3 = true;
+    if(index<10&&index>-1)
+    {
+        HashElem *tmp = hashTable[index];
+        HashElem *tmp2 = hashTableEven[index];
+        HashElem *tmp3 = hashTableOdd[index];
+        tmp = tmp->next;
+        if (tmp != NULL) {
+            cout << "Table 1 - Index " << index << ":" << endl;
+        }
+        while (tmp != NULL) {
+            empty = false;
+            cout << tmp->title << ", " << tmp->year;
+            tmp = tmp->next;
+            if (tmp != NULL) {
+                cout << " -> ";
+            }
+            else {
+                cout << endl;
+            }
+        }
 
-	tmp2 = tmp2->next;
-	if (tmp2 != NULL) {
-		cout << "Table 2 - Index " << index << ":" << endl;
-	}
-	while (tmp2 != NULL) {
-		empty2 = false;
-		cout << tmp2->title << ", " << tmp2->year;
-		tmp2 = tmp2->next;
-		if (tmp2 != NULL) {
-			cout << " -> ";
-		}
-		else {
-			cout << endl;
-		}
-	}
-	
-	tmp3 = tmp3->next;
-	if (tmp3 != NULL) {
-		cout << "Table 3 - Index " << index << ":" << endl;
-	}
-	while (tmp3 != NULL) {
-		empty3 = false;
-		cout << tmp3->title << ", " << tmp3->year;
-		tmp3 = tmp3->next;
-		if (tmp3 != NULL) {
-			cout << " -> ";
-		}
-		else {
-			cout << endl;
-		}
-	}
+        tmp2 = tmp2->next;
+        if (tmp2 != NULL) {
+            cout << "Table 2 - Index " << index << ":" << endl;
+        }
+        while (tmp2 != NULL) {
+            empty2 = false;
+            cout << tmp2->title << ", " << tmp2->year;
+            tmp2 = tmp2->next;
+            if (tmp2 != NULL) {
+                cout << " -> ";
+            }
+            else {
+                cout << endl;
+            }
+        }
+
+        tmp3 = tmp3->next;
+        if (tmp3 != NULL) {
+            cout << "Table 3 - Index " << index << ":" << endl;
+        }
+        while (tmp3 != NULL) {
+            empty3 = false;
+            cout << tmp3->title << ", " << tmp3->year;
+            tmp3 = tmp3->next;
+            if (tmp3 != NULL) {
+                cout << " -> ";
+            }
+            else {
+                cout << endl;
+            }
+        }
+    }
 
 	if (empty) {				//Prints empty if table empty at index
 		cout << "Table 1 - Index " << index << ": is empty" << endl;
