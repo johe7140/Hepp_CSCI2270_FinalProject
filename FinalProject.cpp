@@ -17,6 +17,7 @@ int main() {
 	bool cont = true;		//Bool for program continue
 	int selection, year, index;	//User menu input
 	string title;
+	string choice;
 	while (cont) {			//Runs menu until quit 
 		printMenu();
 		cin >> selection;
@@ -51,7 +52,15 @@ int main() {
 			break;
 
 		case 4:				//Print Table
-			ht.printTableContents();			//Prints content of first three tables
+			cout<<"Which Table? (Table 1/Table 2/Table 3/All)"<<endl;
+		    	getline(cin,choice);
+		    	ht.printOneAtTime(choice);
+
+		    	if(choice == "All")
+        		{
+                		ht.printTableContents();
+            		}
+						//Prints content of first three tables
 			break;
 
 		case 5:				//Compare Movie
