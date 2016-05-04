@@ -41,6 +41,7 @@ public:
 	void compareMovie(std::string name);
 	void mergeTables();
 	void printMergeTable();
+	void printOneAtTime(string choice);
 private:
 	int hashSum(std::string x, int s);
 	int hashSumEven(std::string x, int s);
