@@ -206,6 +206,65 @@ void HashTable::deleteMovie3(std::string name) {
 		}
 	}
 }
+void HashTable::printOneAtTime(string choice)
+{
+    bool empty = true;
+    bool empty2 = true;
+    bool empty3 = true;
+    for(int i = 0; i< tableSize; i++)
+    {
+        HashElem *temp = hashTable[i];
+        HashElem *tmp = hashTable[i];
+		HashElem *tmp2 = hashTableEven[i];
+		HashElem *tmp3 = hashTableOdd[i];
+		tmp = tmp->next;
+		tmp2 = tmp2->next;
+		tmp3 = tmp3->next;
+
+		if(choice == "Table 1")
+        {
+
+            while (tmp != NULL)
+            {			//Prints table contents if filled at index
+			cout << "Table 1 " << i << ":" << tmp->title << ", " << tmp->year << endl;
+			empty = false;
+			tmp = tmp->next;
+            }
+
+        }
+
+
+        if(choice == "Table 2")
+        {
+            while (tmp2 != NULL)
+            {
+			cout << "Table 2 " << i << ":" << tmp2->title << ", " << tmp2->year << endl;
+			empty2 = false;
+			tmp2 = tmp2->next;
+            }
+        }
+
+        if(choice == "Table 3")
+        {
+            while (tmp3 != NULL) {
+			cout << "Table 3 " << i << ":" << tmp3->title << ", " << tmp3->year << endl;
+			empty3 = false;
+			tmp3 = tmp3->next;
+            }
+        }
+
+
+    }
+	if ((empty) && (choice == "Table 1")) {						//Prints empty if table is empty at index
+		cout << "Table 1 empty" << endl;
+	}
+	if ((empty2)&& (choice == "Table 2")) {
+		cout << "Table 2 empty" << endl;
+	}
+	if ((empty3) && (choice == "Table 3")) {
+		cout << "Table 3 empty" << endl;
+	}
+}
 
 void HashTable::printTableContents() {
 	bool empty = true;
